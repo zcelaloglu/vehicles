@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vehicles</string>
+    <string name="vehicle_title">Title:</string>
+    <string name="vehicle_fuel_type">Fuel Type:</string>
+    <string name="vehicle_price">Price:</string>
+
+</resources>

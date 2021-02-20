@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewState"
+            type="com.celaloglu.zafer.features.viewstates.VehicleEntityViewState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/vehicle_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text='@{viewState.title}'
+            app:layout_constraintBottom_toBottomOf="@+id/title"
+            app:layout_constraintStart_toEndOf="@+id/title"
+            app:layout_constraintTop_toTopOf="@+id/title"
+            tools:text="Ford Mondeo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fuel_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/vehicle_fuel_type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text='@{viewState.fuelType}'
+            app:layout_constraintBottom_toBottomOf="@+id/fuel_type"
+            app:layout_constraintStart_toEndOf="@+id/fuel_type"
+            app:layout_constraintTop_toTopOf="@+id/fuel_type"
+            tools:text="Diesel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/vehicle_price"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fuel_type" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text='@{String.valueOf(viewState.price)}'
+            app:layout_constraintBottom_toBottomOf="@+id/price"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toTopOf="@+id/price"
+            tools:text="5000" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            app:loadUrl='@{viewState.imageUrls != null ? viewState.imageUrls.get(0) : ""}'
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:visibleIf="@{viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() != 0}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image1"
+            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 2) ? viewState.imageUrls.get(1) : ""}'
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 2)}'
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image3"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image2"
+            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 3) ? viewState.imageUrls.get(2) : ""}'
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 3)}'
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image4"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image3"
+            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 4) ? viewState.imageUrls.get(3) : ""}'
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 4)}'
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image5"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image4"
+            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 5) ? viewState.imageUrls.get(4) : ""}'
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 5)}'
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

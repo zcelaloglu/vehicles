@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.celaloglu.zafer"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    def appDependencies = rootProject.ext.appDependencies
+
+    //Local Libs
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation appDependencies.kotlin
+    implementation appDependencies.appCompat
+    implementation appDependencies.androidxKtx
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.supportV4
+
+    //Jetpack
+    implementation appDependencies.fragmentKtx
+    implementation appDependencies.lifecycleExtensions
+
+    //Material
+    implementation appDependencies.material
+
+    //Glide
+    implementation appDependencies.glide
+    kapt appDependencies.glideAnnotationProcessor
+
+    // Koin
+    implementation appDependencies.koinAndroid
+    implementation appDependencies.koinLifeCycleScope
+    implementation appDependencies.koinAndroidViewModel
+
+    //navigation
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUI
+
+    //Retrofit
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.loggingInterceptor
+    implementation dataDependencies.coroutinesCore
+
+    //Moshi
+    implementation dataDependencies.moshiConverter
+
+    // Testing
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.androidxJunit
+    testImplementation testDependencies.googleTruth
+    testImplementation testDependencies.archComponentTest
+    testImplementation testDependencies.coroutinesTest
+    testImplementation testDependencies.androidxJunit
+    testImplementation testDependencies.androidxCoreTest
+    testImplementation testDependencies.mockWebServer
+
+}
