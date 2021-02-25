@@ -39,7 +39,7 @@ object Libraries {
         const val retrofitVersion = "2.7.0"
         const val moshiConverterVersion = "2.7.0"
         const val loggingInterceptorVersion = "4.2.1"
-        const val coroutinesCoreVersion = "1.3.3"
+        const val coroutinesCoreVersion = "1.3.9"
     }
 
         const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"

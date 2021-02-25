@@ -5,9 +5,11 @@ import com.celaloglu.zafer.commons.Loading
 import com.celaloglu.zafer.commons.Success
 import com.celaloglu.zafer.commons.UiStateViewModel
 import com.celaloglu.zafer.domain.usecases.VehiclesUseCase
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@ExperimentalCoroutinesApi
 class VehiclesViewModel(
     private val vehiclesUseCase: VehiclesUseCase
 ) : UiStateViewModel() {

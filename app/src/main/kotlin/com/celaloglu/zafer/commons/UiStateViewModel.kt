@@ -1,16 +1,18 @@
 package com.celaloglu.zafer.commons
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
+@ExperimentalCoroutinesApi
 open class UiStateViewModel : ViewModel() {
 
-    val uiState: LiveData<UiState>
+    val uiState: StateFlow<UiState>
         get() = _uiState
 
-    protected var _uiState = MutableLiveData<UiState>()
+    protected var _uiState = MutableStateFlow<UiState>(Loading)
 
     protected val handler = CoroutineExceptionHandler { _, exception ->
         _uiState.value = Error(exception)
