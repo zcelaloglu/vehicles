@@ -11,3 +11,5 @@
 ● Used Moshi for parsing Json response
 
 ● Used Coroutines/Flow for Asynchronous data operations
+
+● Used Junit, MockWebServer, Truth, CoroutinesTest for testing
