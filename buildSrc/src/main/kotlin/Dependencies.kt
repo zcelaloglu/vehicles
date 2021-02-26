@@ -9,8 +9,6 @@ object BuildPlugins {
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildToolsVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    const val safeArgsPlugin =
-        "android.arch.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsVersion}"
 
 }
 
