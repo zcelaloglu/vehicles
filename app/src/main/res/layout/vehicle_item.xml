@@ -95,9 +95,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price"
-            app:loadUrl='@{viewState.imageUrls != null ? viewState.imageUrls.get(0) : ""}'
+            app:loadUrl='@{viewState.firstImageUrl()}'
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:visibleIf="@{viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() != 0}"
+            app:visibleIf="@{viewState.firstImageVisible}"
             tools:srcCompat="@tools:sample/backgrounds/scenic"
             tools:visibility="visible" />
 
@@ -112,9 +112,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image1"
-            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 2) ? viewState.imageUrls.get(1) : ""}'
+            app:loadUrl='@{viewState.secondImageUrl()}'
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 2)}'
+            app:visibleIf="@{viewState.secondImageVisible}"
             tools:srcCompat="@tools:sample/backgrounds/scenic"
             tools:visibility="visible" />
 
@@ -129,9 +129,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image2"
-            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 3) ? viewState.imageUrls.get(2) : ""}'
+            app:loadUrl='@{viewState.thirdImageUrl()}'
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 3)}'
+            app:visibleIf="@{viewState.thirdImageVisible}"
             tools:srcCompat="@tools:sample/backgrounds/scenic"
             tools:visibility="visible" />
 
@@ -146,9 +146,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image3"
-            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 4) ? viewState.imageUrls.get(3) : ""}'
+            app:loadUrl='@{viewState.fourthImageUrl()}'
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 4)}'
+            app:visibleIf="@{viewState.fourthImageVisible}"
             tools:srcCompat="@tools:sample/backgrounds/scenic"
             tools:visibility="visible" />
 
@@ -163,9 +163,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image4"
-            app:loadUrl='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 5) ? viewState.imageUrls.get(4) : ""}'
+            app:loadUrl='@{viewState.fifthImageUrl()}'
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:visibleIf='@{(viewState.imageUrls != null &amp;&amp; viewState.imageUrls.size() >= 5)}'
+            app:visibleIf="@{viewState.fifthImageVisible}"
             tools:srcCompat="@tools:sample/backgrounds/scenic"
             tools:visibility="visible" />
 
